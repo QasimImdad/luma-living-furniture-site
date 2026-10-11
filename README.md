@@ -1,33 +1,37 @@
-# React + Vite
+# Luma Living — Furniture E-Commerce Website
 
-## API setup
+A modern, responsive furniture shopping website built with **React, Vite, Node.js, Express.js, and MySQL**.
 
-The storefront reads products, carts, authentication, and orders from the Express API. Start the backend and configure the frontend API origin in a local `.env` file:
+## Features
+- Product browsing, search, filters, and sorting
+- Product details, images, and collections
+- User registration and login
+- Shopping cart and quantity management
+- Checkout and order management
+- Responsive design for desktop and mobile
 
-```dotenv
-VITE_API_BASE_URL=http://localhost:3000
-```
+## Tech Stack
+- **Frontend:** React, Vite
+- **Backend:** Node.js, Express.js
+- **Database:** MySQL
+- **Tools:** XAMPP, Git, GitHub
 
-If omitted, the frontend uses `http://localhost:3000`. Restart Vite after changing the environment variable. Product image paths returned by the API are resolved against this same origin.
+## Getting Started
+1. Clone the repository.
+2. Install Node.js and XAMPP.
+3. Start MySQL and configure the database.
+4. Install dependencies in the frontend and backend folders.
+5. Configure environment variables and start both servers.
 
-Create an account and log in before adding products to the server-side cart. Checkout is available at `/checkout` and collects contact and delivery details, then lets shoppers select bank account, PayPal, or cash on delivery. It submits these details and the selected `payment_method` with the order and creates an order with `pending_payment` status; payment processing is not configured in this storefront.
+*See the project configuration for exact setup commands.*
 
-The home page builds a separate product collection for each category/subcategory returned by the API. For catalog rows without category fields, it uses the product SKU prefixes assigned by the backend importer (for example, `SOF`, `CHR`, `TBL`, and `BED`) to group the API products. Use the collection tiles to open its full product list.
+## Payment Information
+Payment methods are selectable in the checkout interface. Live payment gateway processing is not configured unless separately implemented.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Author
+**Muhammad Qasim**
 
-Currently, two official plugins are available:
+- **GitHub:** https://github.com/QasimImdad
+- **LinkedIn:** https://www.linkedin.com/in/muhammad-qasim-36a902386/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Built as a practical full-stack web development project.
