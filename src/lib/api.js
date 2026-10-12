@@ -1,6 +1,7 @@
 export const API_BASE_URL = (
   import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000'
 ).replace(/\/+$/, '');
+const API_ORIGIN = new URL(API_BASE_URL).origin;
 
 const pendingGetRequests = new Map();
 
@@ -69,14 +70,21 @@ export async function apiRequest(path, { token, ...options } = {}) {
   }
 }
 
-export function getProductImageUrl(imagePath) {
+export function getProductImageUrl(imagePath, variant) {
   if (!imagePath || typeof imagePath !== 'string') return '';
 
+  let url;
   try {
-    return new URL(imagePath).toString();
+    url = new URL(imagePath);
   } catch {
-    return `${API_BASE_URL}/${imagePath.replace(/^\/+/, '')}`;
+    url = new URL(imagePath.replace(/^\/+/, ''), `${API_BASE_URL}/`);
   }
+
+  if (variant && url.origin === API_ORIGIN && url.pathname.startsWith('/uploads/')) {
+    url.searchParams.set('variant', variant);
+  }
+
+  return url.toString();
 }
 
 export const formatUsd = (amount) =>

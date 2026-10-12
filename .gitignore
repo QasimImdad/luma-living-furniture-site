@@ -27,6 +27,19 @@ firebase-adminsdk*.json
 *.p12
 *.pfx
 
+# Local data, credentials, logs, and generated artifacts
+*.sql
+!backend/luma-living-database.sql
+*.sql.*
+*.dump
+*.backup
+*.bak
+database-backups/
+logs/
+tmp/
+temp/
+coverage/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

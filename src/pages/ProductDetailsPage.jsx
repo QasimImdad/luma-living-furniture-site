@@ -42,7 +42,7 @@ const ProductDetailsContent = ({ id }) => {
         if (!result.product) throw new Error('The API response did not contain product details.');
         if (active) {
           setProduct(result.product);
-          setSelectedImage(getProductImageUrl(result.product.image));
+          setSelectedImage(result.product.image);
           setQuantity(1);
           window.scrollTo(0, 0);
         }
@@ -89,7 +89,7 @@ const ProductDetailsContent = ({ id }) => {
   const imagesList = [
     product.image,
     ...(Array.isArray(product.additionalImages) ? product.additionalImages : []),
-  ].filter(Boolean).map(getProductImageUrl);
+  ].filter(Boolean);
 
   const relatedProducts = products.filter(
     (item) => item.category === product.category && String(item.id) !== String(product.id)
@@ -177,7 +177,7 @@ const ProductDetailsContent = ({ id }) => {
             {/* Left Image Gallery Column */}
             <div className="pdetails-gallery-col">
               <div className="main-image-viewport">
-                <img src={selectedImage || getProductImageUrl(product.image)} alt={product.name} className="main-pimg" />
+                <img src={getProductImageUrl(selectedImage || product.image, 'detail')} alt={product.name} className="main-pimg" />
 
                 <div className="gallery-badges">
                   {Number(product.featured) === 1 && <span className="badge badge-featured">Featured</span>}
@@ -196,7 +196,12 @@ const ProductDetailsContent = ({ id }) => {
                       className={`thumb-btn ${selectedImage === imgUrl ? 'active' : ''}`}
                       onClick={() => setSelectedImage(imgUrl)}
                     >
-                      <img src={imgUrl} alt={`${product.name} view ${idx + 1}`} />
+                      <img
+                        src={getProductImageUrl(imgUrl, 'card')}
+                        alt={`${product.name} view ${idx + 1}`}
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </button>
                   ))}
                 </div>

@@ -55,7 +55,7 @@ export const ProductCard = ({ product }) => {
           aria-label={`View details for ${product.name}`}
         >
           <img
-            src={getProductImageUrl(product.image)}
+            src={getProductImageUrl(product.image, 'card')}
             alt=""
             className="product-card-image"
             loading="lazy"

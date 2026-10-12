@@ -1,0 +1,25 @@
+node_modules/
+.env
+.env.*
+!.env.example
+
+# Logs, temp files, generated output, and local database backups.
+*.log
+logs/
+tmp/
+temp/
+coverage/
+*.sql
+!luma-living-database.sql
+*.sql.*
+*.dump
+*.backup
+*.bak
+database-backups/
+
+# Private keys and credential bundles.
+*.pem
+*.key
+*.p12
+*.pfx
+*service-account*.json

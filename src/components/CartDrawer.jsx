@@ -55,7 +55,7 @@ export const CartDrawer = () => {
             <div className="drawer-cart-list">
               {cart.map((item) => (
                 <div key={item.id} className="drawer-cart-item">
-                  <img src={getProductImageUrl(item.image)} alt={item.name} className="drawer-item-img" />
+                  <img src={getProductImageUrl(item.image, 'card')} alt={item.name} className="drawer-item-img" />
                   <div className="drawer-item-info">
                     <div className="drawer-item-top">
                       <h4 className="drawer-item-title">{item.name}</h4>

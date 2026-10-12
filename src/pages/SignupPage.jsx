@@ -61,7 +61,7 @@ export default function SignupPage() {
           <label htmlFor="signup-address">Delivery address</label>
           <textarea id="signup-address" name="address" autoComplete="street-address" value={form.address} onChange={updateField} required />
           <label htmlFor="signup-password">Password</label>
-          <input id="signup-password" name="password" type="password" autoComplete="new-password" value={form.password} onChange={updateField} required />
+          <input id="signup-password" name="password" type="password" autoComplete="new-password" minLength={12} maxLength={72} value={form.password} onChange={updateField} required />
           <button type="submit" className="btn-auth-submit" disabled={submitting}>
             {submitting ? 'Creating account…' : 'Create account'}
           </button>

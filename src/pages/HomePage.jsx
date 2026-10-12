@@ -107,7 +107,7 @@ export const HomePage = () => {
                 >
                   {cat.product?.image && (
                     <img
-                      src={getProductImageUrl(cat.product.image)}
+                      src={getProductImageUrl(cat.product.image, 'card')}
                       alt={cat.name}
                       className="cat-card-img"
                       loading="lazy"

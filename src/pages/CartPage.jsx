@@ -82,7 +82,7 @@ export const CartPage = () => {
                       <div className="cart-item-product-info">
                         <Link to={`/products/details/${item.product_id}`} className="cart-item-img-wrap">
                           <img
-                            src={getProductImageUrl(item.image)}
+                            src={getProductImageUrl(item.image, 'card')}
                             alt={item.name}
                             className="cart-item-img"
                           />

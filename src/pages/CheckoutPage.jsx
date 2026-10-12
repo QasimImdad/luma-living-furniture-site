@@ -278,7 +278,7 @@ export default function CheckoutPage() {
                 {cart.map((item) => (
                   <div className="checkout-order-item" key={item.id}>
                     <div className="checkout-order-image-wrap">
-                      <img src={getProductImageUrl(item.image)} alt="" />
+                      <img src={getProductImageUrl(item.image, 'card')} alt="" />
                       <span>{item.quantity}</span>
                     </div>
                     <div className="checkout-order-item-copy">
